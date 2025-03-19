@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Store/cartSlice";
 import product1 from "../assets/product1.jpg";
 import product2 from "../assets/product2.jpg";
 import product3 from "../assets/product3.jpg";
@@ -116,8 +118,8 @@ const FestivalDetails = [
   },
 ];
 const FestivalCollections = () => {
-  const [festivalproducts, setfestivalproducts] = useState(FestivalDetails);
-  console.log(festivalproducts);
+  const [festivalproducts] = useState(FestivalDetails);
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="flex justify-center">
@@ -140,8 +142,11 @@ const FestivalCollections = () => {
             <img className="w-72" src={items.image} alt="" />
             <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
             <p>{items.price}</p>
-            <button className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto">
-            ADD TO CART
+            <button
+              className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto  cursor-pointer"
+              onClick={() => dispatch(addToCart(items))}
+            >
+              ADD TO CART
             </button>
           </div>
         ))}

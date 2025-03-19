@@ -20,6 +20,8 @@ import product14 from "../assets/product14.jpg";
 import product15 from "../assets/product15.jpg";
 import product16 from "../assets/product16.jpg";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Store/cartSlice";
 const Earbudsdetails = [
   {
     id: "1",
@@ -145,9 +147,8 @@ const Earbudsdetails = [
 console.log(Earbudsdetails);
 
 const Earbuds = () => {
-  const [earbuds, setearbuds] = useState(Earbudsdetails);
-  console.log(Earbudsdetails);
-
+  const [earbuds] = useState(Earbudsdetails);
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="flex justify-center">
@@ -170,7 +171,10 @@ const Earbuds = () => {
             <img className="w-72" src={items.image} alt="" />
             <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
             <p>{items.price}</p>
-            <button className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto">
+            <button
+              className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto cursor-pointer"
+              onClick={() => dispatch(addToCart(items))}
+            >
               ADD TO CART
             </button>
           </div>

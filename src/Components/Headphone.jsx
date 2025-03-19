@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { addToCart } from "../Store/cartSlice";
+import { useDispatch } from "react-redux";
 import Headphone1 from "../assets/headphone1.jpg";
 import Headphone2 from "../assets/headphone2.jpg";
 import Headphone3 from "../assets/headphone3.jpg";
@@ -87,8 +89,8 @@ const headphoneDeatils = [
   },
 ];
 const Headphone = () => {
-  const [headphone, setHeadphone] = useState(headphoneDeatils);
-  console.log(headphone);
+  const [headphone] = useState(headphoneDeatils);
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="flex justify-center">
@@ -111,8 +113,11 @@ const Headphone = () => {
             <img className="w-72" src={items.image} alt="" />
             <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
             <p>{items.price}</p>
-            <button className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto">
-            ADD TO CART
+            <button
+              className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto"
+              onClick={() => dispatch(addToCart(items))}
+            >
+              ADD TO CART
             </button>
           </div>
         ))}
