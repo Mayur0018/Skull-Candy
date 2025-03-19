@@ -28,12 +28,22 @@ const Header = () => {
           <img className="w-48" src={Logo} alt="Skull logo" />
         </Link>
         {/* Mobile Menu Button */}
+        <Link to="/shopingcart" className="">
+            <BiShoppingBag className="text-2xl cursor-pointer absolute sm:hidden"/>
+            {cartItems.length > 0 && (
+              <span className="relative -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-1 py-0.3 rounded-full sm:hidden">
+              {cartItems.length}
+            </span>
+            )}
+            
+          </Link>
         <button
           className="md:hidden text-2xl"
           onClick={() => setShowMenu(!showMenu)}
           aria-label="Toggle menu"
         >
           <IoMenu />
+         
         </button>
 
         {/* Mobile Full-Screen Menu */}
@@ -80,6 +90,7 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-5">
+          
           <Link to="/products">
             <li className="hover:text-gray-400">Trending Products</li>
           </Link>
@@ -95,6 +106,7 @@ const Header = () => {
           <Link to="/shop">
             <li className="hover:text-gray-400">Shop</li>
           </Link>
+         
         </ul>
 
         {/* Right Side Icons */}
@@ -108,7 +120,7 @@ const Header = () => {
           <FaRegUser className="text-2xl cursor-pointer" />
           <IoIosSearch className="text-2xl cursor-pointer" />
           <Link to="/shopingcart">
-            <BiShoppingBag className="text-2xl cursor-pointer absolute top-3" />
+            <BiShoppingBag className="text-2xl cursor-pointer absolute top-3 " />
             {cartItems.length > 0 && (
               <span className="relative -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-1 py-0.3 rounded-full">
               {cartItems.length}
