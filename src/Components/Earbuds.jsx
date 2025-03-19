@@ -1,154 +1,14 @@
 import React from "react";
-import img from "../assets/Inkd-Plus.jpg";
-import img1 from "../assets/heandsfree1.jpg";
-import img2 from "../assets/heandsfree2.jpg";
-import img3 from "../assets/heandsfree3.jpg";
-import product1 from "../assets/product1.jpg";
-import product2 from "../assets/product2.jpg";
-import product3 from "../assets/product3.jpg";
-import product4 from "../assets/product4.jpg";
-import product5 from "../assets/product5.jpg";
-import product6 from "../assets/product6.jpg";
-import product7 from "../assets/product7.jpg";
-import product8 from "../assets/product8.jpg";
-import product9 from "../assets/product9.jpg";
-import product10 from "../assets/product10.jpg";
-import product11 from "../assets/product11.jpg";
-import product12 from "../assets/product12.jpg";
-import product13 from "../assets/product13.jpg";
-import product14 from "../assets/product14.jpg";
-import product15 from "../assets/product15.jpg";
-import product16 from "../assets/product16.jpg";
-import { useState } from "react";
+import { Earbudsdetails } from "../Data/EarBuds";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Store/cartSlice";
-const Earbudsdetails = [
-  {
-    id: "1",
-    image: img,
-    text: "Ink’d®+ Earbuds with Microphone",
-    price: "₹2,499.00",
-  },
-  {
-    id: "2",
-    image: img1,
-    text: "Jib Earbuds with Microphone",
-    price: "₹1,999.00",
-  },
-  {
-    id: "3",
-    image: img2,
-    text: "Ink’d®+ Earbuds with Microphone",
-    price: "₹4,599.00",
-  },
-  {
-    id: "4",
-    image: img3,
-    text: "Ink’d®+ Earbuds with Microphone",
-    price: "₹7,999.00",
-  },
-  {
-    id: "5",
-    image: product1,
-    text: "Jib™ True 2 Wireless Earbuds",
-    price: "₹9,999.00",
-  },
-  {
-    id: "6",
-    image: product2,
-    text: "Smokin’ Buds® True Wireless Earbuds",
-    price: "₹7,999.00 – ₹8,999.00",
-  },
-  {
-    id: "7",
-    image: product3,
-    text: "Dime® 3 True Wireless Earbuds",
-    price: "₹9,999.00",
-  },
-  {
-    id: "8",
-    image: product4,
-    text: "Riff® Wireless 2 On-Ear Headphones",
-    price: "₹16,999.00",
-  },
-  {
-    id: "9",
-    image: product5,
-    text: "Dime® 3 True Wireless Earbuds",
-    price: "₹16,999.00",
-  },
-  {
-    id: "10",
-    image: product6,
-    text: "Hesh® ANC Noise Canceling Wireless Headphones",
-    price: "₹29,999.00",
-  },
-  {
-    id: "11",
-    image: product7,
-    text: "Rail® True Wireless Earbuds",
-    price: "₹21,999.00",
-  },
-  {
-    id: "12",
-    image: product8,
-    text: "Crusher® ANC 2 Sensory Bass Headphones with Active Noise Canceling",
-    price: "₹64,999.00",
-  },
-  {
-    id: "13",
-    image: product9,
-    text: "Push® Play Active",
-    price: "₹19,999.00",
-  },
-  {
-    id: "14",
-    image: product10,
-    text: "Sesh® ANC True Wireless Earbuds",
-    price: "₹21,999.00",
-  },
-  {
-    id: "15",
-    image: product11,
-    text: "Rail® ANC True Wireless Earbuds",
-    price: "₹29,999.00",
-  },
-  {
-    id: "16",
-    image: product12,
-    text: "Push™ Active True Wireless Earbuds",
-    price: "₹20,999.00",
-  },
-  {
-    id: "17",
-    image: product13,
-    text: "Set® In-Ear Sport Earbuds",
-    price: "₹7,999.00",
-  },
-  {
-    id: "18",
-    image: product14,
-    text: "Hesh® Evo Wireless Headphones Heavy Audio Bass",
-    price: "₹22,999.00",
-  },
-  {
-    id: "19",
-    image: product15,
-    text: "Grom® Wireless Headphones for Kids",
-    price: "₹15,999.00",
-  },
-  {
-    id: "20",
-    image: product16,
-    text: "Grind® True Wireless Earbuds",
-    price: "₹25,999.00",
-  },
-];
-console.log(Earbudsdetails);
-
+import { useNavigate } from "react-router-dom";
 const Earbuds = () => {
-  const [earbuds] = useState(Earbudsdetails);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleCardClick = ()=>{
+    navigate("/cart/${id}")
+  }
   return (
     <div>
       <div className="flex justify-center">
@@ -166,9 +26,9 @@ const Earbuds = () => {
       </div>
       {/* products details  */}
       <div className="grid sm:grid-cols-3 mt-12">
-        {earbuds.map((items) => (
+        {Earbudsdetails.map((items) => (
           <div className=" flex flex-col items-center" key={items.id}>
-            <img className="w-72" src={items.image} alt="" />
+            <img className="w-72" src={items.image} alt="" onClick={()=> handleCardClick(items.id)} />
             <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
             <p>{items.price}</p>
             <button

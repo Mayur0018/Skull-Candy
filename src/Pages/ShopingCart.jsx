@@ -63,7 +63,7 @@ const ShopingCart = () => {
                 <span>Order total</span>
                 <span>$112.32</span>
               </div>
-              <button className="w-full bg-black text-white py-2 mt-4 rounded-lg hover:bg-indigo-700">
+              <button className="w-full bg-black text-white py-2 mt-4 rounded-lg hover:bg-white hover:text-black">
                 Checkout
               </button>
             </div>

@@ -6,6 +6,7 @@ import Headphone from "./Components/Headphone";
 import Footer from "./Components/Footer";
 import Earbuds from "./Components/Earbuds";
 import FestivalCollections from "./Components/FestivalCollections";
+import CartDetails from "./Pages/CartDetails";
 import ShopingCart from "./Pages/ShopingCart";
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/earbuds" element={<Earbuds />} />
           <Route path="/festival" element={<FestivalCollections />} />
           <Route path="/shopingcart" element={<ShopingCart />} />
+          <Route path="/card/:id" element={<CartDetails />} />
         </Routes>
         <Footer />
       </div>
