@@ -47,7 +47,7 @@ const CartDetails = () => {
         {/* Buttons */}
         <div className="mt-6 flex gap-4">
           <button
-            className="flex items-center gap-2 bg-black text-white px-6 py-3 rounded-md font-medium"
+            className="flex items-center gap-2 bg-black text-white px-6 py-3 rounded-md font-medium cursor-pointer"
             onClick={() => dispatch(addToCart(products))}
           >
             <BsCartPlus /> View in Cart
