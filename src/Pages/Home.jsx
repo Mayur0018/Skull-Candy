@@ -24,24 +24,24 @@ export default function Home() {
       </div>
 
       <div className="grid  grid-cols-3">
-        <h1 className="absolute sm:left-160 text-3xl font-bold text-gray-900 mt-2">
+        <h1 className="absolute sm:left-160 left-41 text-[10px] sm:text-3xl font-bold text-gray-900 mt-2">
           WHAT'S HOT
         </h1>
         <div>
           <img src={Home4} alt="" />
-          <button className=" absolute sm:left-45 sm:top-330 px-5 text-[12px] py-2 bg-white ">
+          <button className=" absolute px-1 py-1 w-auto ml-5 sm:ml-0 text-[10px] sm:left-45 top-100 sm:top-320 sm:px-5 sm:text-[12px] sm:py-2 bg-white ">
             SHOP NOW
           </button>
         </div>
         <div>
           <img src={Home5} alt="" />
-          <button className=" absolute sm:left-158 sm:top-330 px-5 text-[12px] py-2 bg-white">
+          <button className=" absolute sm:left-175 sm:top-320 px-5 text-[12px] py-2 bg-white">
             SHOP NOW
           </button>
         </div>
         <div>
           <img src={Home6} alt="" />
-          <button className=" absolute sm:left-290 sm:top-330 px-5 text-[12px] py-2 bg-white">
+          <button className=" absolute sm:left-290 sm:top-320 px-5 text-[12px] py-2 bg-white">
             SHOP NOW
           </button>
         </div>
