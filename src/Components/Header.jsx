@@ -6,9 +6,11 @@ import { BiShoppingBag } from "react-icons/bi";
 import { IoIosSearch } from "react-icons/io";
 import indianflag from "../assets/indianflag.png";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  console.log(cartItems);
 
   // Disable scrolling when menu is open
   useEffect(() => {
@@ -105,7 +107,15 @@ const Header = () => {
           />
           <FaRegUser className="text-2xl cursor-pointer" />
           <IoIosSearch className="text-2xl cursor-pointer" />
-          <BiShoppingBag className="text-2xl cursor-pointer" />
+          <Link to="/shopingcart">
+            <BiShoppingBag className="text-2xl cursor-pointer absolute top-3" />
+            {cartItems.length > 0 && (
+              <span className="relative -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-1 py-0.3 rounded-full">
+              {cartItems.length}
+            </span>
+            )}
+            
+          </Link>
         </div>
       </div>
 
