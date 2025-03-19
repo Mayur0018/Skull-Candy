@@ -4,17 +4,20 @@ import { CiYoutube } from "react-icons/ci";
 import { FaFacebookSquare } from "react-icons/fa";
 import { CiTwitter } from "react-icons/ci";
 import { AiOutlineRight } from "react-icons/ai";
-
+import footerbg from "../assets/footer-bg.jpg";
 const Footer = () => {
   return (
     <>
-      <div className=" grid grid-cols-1 sm:flex sm:justify-evenly bg-black text-white py-12 px-4 sm:px-0">
+      <div
+        className="grid grid-cols-1 sm:flex sm:justify-evenly bg-black text-white py-12 px-4 sm:px-0 bg-cover bg-fixed"
+        style={{ backgroundImage: `url(${footerbg})` }}
+      >
         <div>
           <h1 className="flex justify-center font-bold text-1xl mb-8">
             HERE IT FIRST
           </h1>
           <input
-             type="text"
+            type="text"
             className="bg-white text-black border border-none px-8 py-1 mb-8"
             placeholder="Sign Up for Emails"
           />
