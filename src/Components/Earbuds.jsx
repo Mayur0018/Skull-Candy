@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 const Earbuds = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleCardClick = ()=>{
-    navigate("/cart/${id}")
+  const handleCardClick = (id)=>{
+    navigate(`/card/${id}`)
   }
   return (
     <div>
