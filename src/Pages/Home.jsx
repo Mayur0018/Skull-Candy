@@ -24,7 +24,7 @@ export default function Home() {
       </div>
 
       <div className="grid  grid-cols-3">
-        <h1 className="absolute sm:left-165 left-38 text-[10px] text-center sm:text-3xl font-bold text-gray-900 mt-1 sm:mt-2 ml-35 sm:ml-10">
+        <h1 className="absolute sm:left-165  flex jusleft-38 text-[10px] text-center sm:text-3xl font-bold text-gray-900 mt-1 sm:mt-2 sm:ml-10">
           WHAT'S HOT
         </h1>
         <div>

@@ -21,11 +21,10 @@ const Header = () => {
 
   return (
     <header className="bg-black sticky top-0 z-50">
-      <div className="flex justify-evenly items-center text-white sm:h-12 px-4 sm:px-24">
+      <div className="flex  justify-between items-center text-white sm:h-12 px-4 sm:px-24">
         <Link to="/">
           <img className="w-48" src={Logo} alt="Skull logo" />
         </Link>
-
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-2xl"

@@ -1,1 +1,11 @@
 @import "tailwindcss";
+body {
+  background-image: url("./assets/image1.png");
+  background-size: 500px auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: whitesmoke;
+  opacity: 1;
+  z-index: -10;
+}

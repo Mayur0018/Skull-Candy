@@ -141,7 +141,7 @@ const FestivalCollections = () => {
             <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
             <p>{items.price}</p>
             <button className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto">
-              VIEW OPTIONS
+            ADD TO CART
             </button>
           </div>
         ))}
