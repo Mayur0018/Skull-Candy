@@ -35,13 +35,13 @@ export default function Home() {
         </div>
         <div>
           <img src={Home5} alt="" />
-          <button className=" absolute sm:left-175 sm:top-320 px-5 text-[12px] py-2 bg-white">
+          <button className=" absolute px-1 py-1 ml-5 top-100 text-[10px] sm:left-175 sm:top-320 sm:px-5  sm:text-[12px] sm:py-2 bg-white">
             SHOP NOW
           </button>
         </div>
         <div>
           <img src={Home6} alt="" />
-          <button className=" absolute sm:left-290 sm:top-320 px-5 text-[12px] py-2 bg-white">
+          <button className=" absolute px-1 py-1 ml-5 top-100  text-[10px] sm:left-290 sm:top-320 sm:px-5 sm:text-[12px] sm:py-2 bg-white">
             SHOP NOW
           </button>
         </div>
