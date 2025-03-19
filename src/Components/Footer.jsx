@@ -87,6 +87,10 @@ const Footer = () => {
           <p>PAN: AAECB6490N</p>
         </div>
       </div>
+      <div className="bg-black bg-fixed text-white sm:flex py-6 justify-center text-center text-[10px] sm:text-1xl font-medium">
+        © 2025, Skullcandy <br />
+        Privacy Policy Terms of Use
+      </div>
     </>
   );
 };
