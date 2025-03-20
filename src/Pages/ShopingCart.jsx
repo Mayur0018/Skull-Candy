@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { incrementCart, decrementCart } from "../Store/cartSlice";
 import { removeFromCart } from "../Store/cartSlice";
 const ShopingCart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -22,21 +23,27 @@ const ShopingCart = () => {
                     className="w-24 h-24 object-cover rounded-lg"
                   />
                   <div className="ml-4 flex-1">
-                    <h2 className="text-lg font-semibold">{item.text}</h2>
-                    <p className="font-semibold">${item.price}</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <select className="border px-2 py-1 rounded">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                    </select>
-                    <button
-                      className="text-gray-500 hover:text-red-500"
-                      onClick={() => dispatch(removeFromCart(item.id))}
-                    >
-                      ✖
-                    </button>
+                    <h2 className="text-[10px] sm:text-[15px]  font-semibold">
+                      {item.text}
+                    </h2>
+                    <p className=" text-[10px] sm:text-[15px] font-semibold">
+                      {item.price}
+                    </p>
+                    <div className="flex justify-evenly">
+                      <button
+                        className="font-bold text-[20px] cursor-pointer"
+                        onClick={() => dispatch(incrementCart(item.id))}
+                      >
+                        +
+                      </button>
+                      <p>{item.quantity}</p>
+                      <button
+                        className="font-bold text-[20px] cursor-pointer"
+                        onClick={() => dispatch(decrementCart(item.id))}
+                      >
+                        -
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -48,7 +55,13 @@ const ShopingCart = () => {
               <div className="space-y-2 text-gray-700">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>$99.00</span>
+                  {cartItems
+                    .reduce(
+                      (total, item) =>
+                        total + Number(item.price.replace(/[^0-9.]/g, "")) * Number(item.quantity),
+                      0
+                    )
+                    .toFixed(2)}
                 </div>
                 <div className="flex justify-between">
                   <span>Shipping estimate</span>
@@ -61,7 +74,15 @@ const ShopingCart = () => {
               </div>
               <div className="border-t mt-4 pt-4 flex justify-between font-semibold">
                 <span>Order total</span>
-                <span>$112.32</span>
+                {(
+                  cartItems.reduce(
+                    (total, item) =>
+                      total + Number(item.price.replace(/[^0-9.]/g, "")) * Number(item.quantity),
+                    0
+                  ) +
+                  5.0 +
+                  8.32
+                ).toFixed(2)}
               </div>
               <button className="w-full bg-black text-white py-2 mt-4 rounded-lg hover:bg-white hover:text-black">
                 Checkout

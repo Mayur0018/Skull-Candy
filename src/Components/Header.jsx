@@ -7,7 +7,6 @@ import { IoIosSearch } from "react-icons/io";
 import indianflag from "../assets/indianflag.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useMemo } from "react";
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -106,7 +105,6 @@ const Header = () => {
 
         {/* Right Side Icons */}
         <div className="hidden sm:flex gap-8 items-center">
-          <p>Support</p>
           <img
             src={indianflag}
             alt="Indian Flag"
