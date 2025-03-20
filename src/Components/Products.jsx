@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { trendProductdetails } from "../Data/Product";
 import { addToCart } from "../Store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ShimmerCard from "../Pages/ShimmerCard";
 
 const Products = () => {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    setTimeout(() => {
+      setProducts(trendProductdetails);
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleCardclick = (id) => {
@@ -27,24 +37,26 @@ const Products = () => {
       </div>
       {/* products details  */}
       <div className="grid sm:grid-cols-3 mt-12 ">
-        {trendProductdetails.map((items) => (
-          <div className=" flex flex-col items-center" key={items.id}>
-            <img
-              className="w-72"
-              src={items.image}
-              alt=""
-              onClick={() => handleCardclick(items.id)}
-            />
-            <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
-            <p>{items.price}</p>
-            <button
-              className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto cursor-pointer"
-              onClick={() => dispatch(addToCart(items))}
-            >
-              ADD TO CART
-            </button>
-          </div>
-        ))}
+        {loading
+          ? [...Array(16)].map((index) => <ShimmerCard key={index} />)
+          : products.map((items) => (
+              <div className=" flex flex-col items-center" key={items.id}>
+                <img
+                  className="w-72"
+                  src={items.image}
+                  alt=""
+                  onClick={() => handleCardclick(items.id)}
+                />
+                <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
+                <p>{items.price}</p>
+                <button
+                  className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto cursor-pointer"
+                  onClick={() => dispatch(addToCart(items))}
+                >
+                  ADD TO CART
+                </button>
+              </div>
+            ))}
       </div>
     </div>
   );

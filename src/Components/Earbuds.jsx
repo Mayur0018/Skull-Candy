@@ -1,14 +1,24 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Earbudsdetails } from "../Data/EarBuds";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Store/cartSlice";
 import { useNavigate } from "react-router-dom";
+import ShimmerCard from "../Pages/ShimmerCard";
 const Earbuds = () => {
+  const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+      setTimeout(() => {
+        setProducts(Earbudsdetails);
+        setLoading(false);
+      }, 2000);
+    }, []);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleCardClick = (id)=>{
-    navigate(`/card/${id}`)
-  }
+  const handleCardClick = (id) => {
+    navigate(`/card/${id}`);
+  };
   return (
     <div>
       <div className="flex justify-center">
@@ -26,9 +36,15 @@ const Earbuds = () => {
       </div>
       {/* products details  */}
       <div className="grid sm:grid-cols-3 mt-12">
-        {Earbudsdetails.map((items) => (
+        {loading?[...Array(16)].map((index)=> <ShimmerCard key={index}/>):
+        products.map((items) => (
           <div className=" flex flex-col items-center" key={items.id}>
-            <img className="w-72" src={items.image} alt="" onClick={()=> handleCardClick(items.id)} />
+            <img
+              className="w-72"
+              src={items.image}
+              alt=""
+              onClick={() => handleCardClick(items.id)}
+            />
             <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
             <p>{items.price}</p>
             <button

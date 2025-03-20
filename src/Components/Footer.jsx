@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <>
       <div
-        className="grid grid-cols-1 sm:flex sm:justify-evenly bg-black text-white py-12 px-4 sm:px-0 bg-cover bg-fixed"
+        className="grid grid-cols-1 sm:grid sm:grid-cols-5  bg-black text-white sm:py-12 px-4 sm:px-0 bg-cover bg-fixed"
         style={{ backgroundImage: `url(${footerbg})` }}
       >
         <div>

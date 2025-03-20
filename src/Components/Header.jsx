@@ -7,11 +7,10 @@ import { IoIosSearch } from "react-icons/io";
 import indianflag from "../assets/indianflag.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useMemo } from "react";
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log(cartItems);
-
   // Disable scrolling when menu is open
   useEffect(() => {
     if (showMenu) {
@@ -139,4 +138,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

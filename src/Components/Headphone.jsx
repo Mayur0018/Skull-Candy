@@ -1,9 +1,19 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { addToCart } from "../Store/cartSlice";
 import { useDispatch } from "react-redux";
 import { headphoneDeatils } from "../Data/HeadPhone";
 import { useNavigate } from "react-router-dom";
+import ShimmerCard from "../Pages/ShimmerCard";
 const Headphone = () => {
+  const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+      setTimeout(() => {
+        setProducts(headphoneDeatils);
+        setLoading(false);
+      }, 2000);
+    }, []);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleCardclick = (id) => {
@@ -26,7 +36,8 @@ const Headphone = () => {
       </div>
       {/* products details  */}
       <div className="grid sm:grid-cols-3 mt-12">
-        {headphoneDeatils.map((items) => (
+        {loading? [...Array(16)].map((index)=> <ShimmerCard key={index} />):
+         headphoneDeatils.map((items) => (
           <div className=" flex flex-col items-center" key={items.id}>
             <img className="w-72" src={items.image} alt=""  onClick={()=> handleCardclick(items.id)}/>
             <h2 className="font-bold text-1xl mt-1">{items.text}</h2>
