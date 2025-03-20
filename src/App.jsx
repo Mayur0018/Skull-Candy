@@ -9,6 +9,8 @@ import FestivalCollections from "./Components/FestivalCollections";
 import CartDetails from "./Pages/CartDetails";
 import ShopingCart from "./Pages/ShopingCart";
 import Shop from "./Components/Shop";
+import Signin from "./Pages/Signin";
+import Search from "./Pages/Search";
 function App() {
   return (
     <>
@@ -23,6 +25,8 @@ function App() {
           <Route path="/shopingcart" element={<ShopingCart />} />
           <Route path="/card/:id" element={<CartDetails />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
         <Footer />
       </div>
