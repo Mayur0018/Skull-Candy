@@ -29,19 +29,19 @@ export default function Home() {
         </h1>
         <div>
           <img src={Home4} alt="" />
-          <button className=" absolute px-1 py-1 w-auto lg:top-320  mt-[-25px]  ml-8 md:left-20 md:ml-0 top-auto md:top-220  sm:ml-0 text-[10px] sm:left-10  sm:top-170 sm:px-5 sm:text-[12px] sm:py-2 bg-white ">
+          <button className=" absolute px-1 py-1 w-auto lg:top-230  mt-[-25px] xl:top-320 xl:left-40 ml-8 md:left-20 md:ml-0 top-auto md:top-220  sm:ml-0 text-[10px] sm:left-10  sm:top-170 sm:px-5 sm:text-[12px] sm:py-2  bg-white ">
             SHOP NOW
           </button>
         </div>
         <div>
           <img src={Home5} alt="" />
-          <button className=" absolute px-1 py-1 mt-[-25px] lg:top-320 lg:left-150 ml-8 text-[10px]  md:left-100  md:top-220  top-auto   sm:top-170 sm:px-5  sm:text-[12px] sm:py-2  bg-white">
+          <button className=" absolute px-1 py-1 mt-[-25px] lg:top-230 lg:left-200 xl:top-320 xl:left-150  ml-8 text-[10px]  md:left-100  md:top-220  top-auto   sm:top-170 sm:px-5  sm:text-[12px] sm:py-2  bg-white">
             SHOP NOW
           </button>
         </div>
         <div>
           <img src={Home6} alt="" />
-          <button className=" absolute px-1 py-1 mt-[-25px] lg:top-320  ml-8 lg:left-300  top-auto   md:top-220 text-[10px] md:left-180   sm:left-120  sm:top-170 sm:px-5 sm:text-[12px] sm:py-2 bg-white">
+          <button className=" absolute px-1 py-1 mt-[-25px] lg:top-230  ml-8 lg:left-110 xl:top-320 xl:left-280   md:top-220 text-[10px] md:left-180   sm:left-120  sm:top-170 sm:px-5 sm:text-[12px] sm:py-2 bg-white">
             SHOP NOW
           </button>
         </div>
