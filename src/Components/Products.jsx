@@ -73,7 +73,7 @@ const Products = () => {
 
       {/* Popup Message */}
       {showpopup && (
-        <div className="fixed bottom-10 right-10 bg-green-500 text-white py-1 px-2 sm:px-4 sm:py-2 rounded-lg shadow-lg transition-opacity duration-300">
+        <div className="fixed  bottom-10 right-10 bg-green-500 text-white py-1 px-2 sm:px-4 sm:py-2 rounded-lg shadow-lg transition-opacity duration-300">
           Item added to cart!
         </div>
       )}
