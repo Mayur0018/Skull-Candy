@@ -9,6 +9,7 @@ import ShimmerCard from "../Pages/ShimmerCard";
 const FestivalCollections = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [showpopup, setShowPopup] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setProducts(FestivalDetails);
@@ -20,6 +21,12 @@ const FestivalCollections = () => {
   const navigate = useNavigate();
   const handleCardclick = (id) => {
     navigate(`/card/${id}`);
+  };
+
+  const handleAddtocart = (item) => {
+    dispatch(addToCart(item));
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 2000);
   };
   return (
     <div>
@@ -52,13 +59,19 @@ const FestivalCollections = () => {
                 <p>{items.price}</p>
                 <button
                   className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto  cursor-pointer"
-                  onClick={() => dispatch(addToCart(items))}
+                  onClick={() => handleAddtocart(items)}
                 >
                   ADD TO CART
                 </button>
               </div>
             ))}
       </div>
+
+      {showpopup && (
+        <div className="fixed bottom-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300">
+          Item added to cart!
+        </div>
+      )}
     </div>
   );
 };

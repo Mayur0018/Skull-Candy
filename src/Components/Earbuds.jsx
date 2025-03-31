@@ -8,6 +8,7 @@ import ShimmerCard from "../Pages/ShimmerCard";
 const Earbuds = () => {
   const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
+    const [showPopup,setShoPoup] = useState(false);
     useEffect(() => {
       setTimeout(() => {
         setProducts(Earbudsdetails);
@@ -19,6 +20,11 @@ const Earbuds = () => {
   const handleCardClick = (id) => {
     navigate(`/card/${id}`);
   };
+  const handleAddtocart= (item)=>{
+    dispatch(addToCart(item));
+    setShoPoup(true);
+    setTimeout(()=> setShoPoup(false),2000)
+  }
   return (
     <div>
       <div className="flex justify-center">
@@ -49,13 +55,18 @@ const Earbuds = () => {
             <p>{items.price}</p>
             <button
               className=" bg-gray-800 text-white px-5 py-3 font-medium text-[12px] mt-3 mb-10 m-auto cursor-pointer"
-              onClick={() => dispatch(addToCart(items))}
+              onClick={() =>handleAddtocart(items)}
             >
               ADD TO CART
             </button>
           </div>
         ))}
       </div>
+      {showPopup && (
+        <div className="fixed bottom-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300">
+          Item added to cart!
+        </div>
+      )}
     </div>
   );
 };
