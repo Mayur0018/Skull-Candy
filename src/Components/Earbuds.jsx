@@ -40,6 +40,8 @@ const Earbuds = () => {
           <option value="">PRICE: HIGH TO LOW</option>
         </select>
       </div>
+
+      
       {/* products details  */}
       <div className="grid sm:grid-cols-3 mt-12">
         {loading?[...Array(16)].map((index)=> <ShimmerCard key={index}/>):
