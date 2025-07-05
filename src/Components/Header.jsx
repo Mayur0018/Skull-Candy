@@ -7,8 +7,11 @@ import { IoIosSearch } from "react-icons/io";
 import indianflag from "../assets/indianflag.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ChatLogo from "../assets/chatbotimg.png";
+import ChatBot from "./Chatbot";
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showModel, setshowModel] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   // Disable scrolling when menu is open
   useEffect(() => {
@@ -132,6 +135,37 @@ const Header = () => {
         GET FLAT RS 500 VOUCHER ON YOUR NEXT PURCHASE MINIMUM ORDER VALUE RS
         1898. <span className="text-blue-700">*T&C APPLY</span>
       </h1>
+
+      {/* chatbot  */}
+      <div className="fixed bottom-25 left-5">
+        
+        <img
+          src={ChatLogo}
+          alt=""
+          className=" cursor-pointer"
+          onClick={() => setshowModel(true)}
+        />
+
+        {/* Modal */}
+        {showModel && (
+          <div className="fixed inset-0 z-50 flex items-center justify-cente bg-opacity-50 sm:ml-5">
+            <div className="bg-white w-full max-w-md p-4 rounded shadow-lg relative">
+              <button
+                onClick={() => setshowModel(false)}
+                className="absolute top-0 right-2 text-gray-600 hover:text-black"
+              >
+                ✕
+              </button>
+              <h2 className="text-lg font-bold mb-2 bg-black text-white flex  justify-center py-5">
+                Chat with us
+              </h2>
+              <div className="h-96">
+                <ChatBot />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
 };

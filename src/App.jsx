@@ -6,6 +6,7 @@ import Products from "./Components/Products";
 import Headphone from "./Components/Headphone";
 import Footer from "./Components/Footer";
 import Earbuds from "./Components/Earbuds";
+import ChatBot from "./Components/Chatbot";
 const FestivalCollections = React.lazy(() =>
   import("./Components/FestivalCollections")
 );
@@ -37,6 +38,7 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/chatbot" element={<ChatBot />} />
           </Routes>
           <Footer />
         </div>
