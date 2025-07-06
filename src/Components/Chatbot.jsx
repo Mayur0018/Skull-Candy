@@ -54,7 +54,7 @@ const ChatBot = () => {
           placeholder="Type your message..."
         />
         <button className="bg-blue-500 text-white px-4 py-1 rounded" onClick={handleUserMessage}>
-          Send
+          send
         </button>
       </div>
     </div>
