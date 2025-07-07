@@ -12,6 +12,7 @@ const ChatBot = () => {
     const newMessages = [...messages, { sender: 'user', text: userMsg }];
     const botReply = getBotReply(userMsg);
 
+    
     setMessages([...newMessages, { sender: 'bot', text: botReply }]);
     setInput('');
   };
@@ -54,7 +55,7 @@ const ChatBot = () => {
           placeholder="Type your message..."
         />
         <button className="bg-blue-500 text-white px-4 py-1 rounded" onClick={handleUserMessage}>
-          send
+          send                                                                                                                                                                                                                      
         </button>
       </div>
     </div>
